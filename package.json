@@ -46,5 +46,8 @@
     "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^16.2.0",
     "standard": "^10.0.3"
+  },
+  "standard": {
+    "parser": "babel-eslint"
   }
 }
