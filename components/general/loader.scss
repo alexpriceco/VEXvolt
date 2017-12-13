@@ -1,0 +1,28 @@
+@import '../mixins.scss';
+@import '../vars.scss';
+
+// based on https://codepen.io/suez/pen/myvgdg?editors=1100
+// adapted for React
+
+$len: 242.776657104492px;
+$time: 1.2s;
+.loader {
+  transform: scale(0.5);
+  stroke-dasharray: $len*0.01, $len;
+  stroke-dashoffset: 0;
+  animation: anim $time linear infinite;
+}
+@keyframes anim {
+  12.5% {
+    stroke-dasharray: $len*0.14, $len;
+    stroke-dashoffset: -$len*0.11;
+  }
+  43.75% {
+    stroke-dasharray: $len*0.35, $len;
+    stroke-dashoffset: -$len*0.35;
+  }
+  100% {
+    stroke-dasharray: $len*0.01, $len;
+    stroke-dashoffset: -$len*0.99;
+  }
+}

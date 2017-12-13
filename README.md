@@ -1,3 +1,2 @@
-# VEXvolt
-
-VEXvolt is an easier, cheaper way to check VEX battery voltage.
+## VEXvolt Website
+Add stuff to this readme
