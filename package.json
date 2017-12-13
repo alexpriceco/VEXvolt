@@ -9,6 +9,8 @@
   "license": "MIT",
   "dependencies": {
     "aframe": "^0.7.1",
+    "aframe-particle-system-component": "^1.0.11",
+    "aframe-react": "^4.3.0",
     "babel-plugin-wrap-in-js": "^1.1.1",
     "body-parser": "^1.18.2",
     "color-convert": "^1.9.1",

@@ -1,27 +1,34 @@
-import React, { Component } from 'react'
+import React from 'react'
+import dynamic from 'next/dynamic'
+
 import Style from '../components/general/style'
 import sheet from '../components/base.scss'
 
-import dynamic from 'next/dynamic'
-dynamic(import('aframe'), { ssr: false })
-
-export class Layout extends Component {
-  constructor (props, context) {
-    super(props, context)
-    this.state = {
+const Layout = dynamic({
+  modules: props => {
+    const components = {
+      aframe: import('aframe'),
+      aframeReact: import('aframe-react')
     }
-  }
 
-  render () {
+    return components
+  },
+  render: (props, { aframe, aframeReact }) => {
+    const { Entity, Scene } = aframeReact
+
     return (
       <main>
-        <header>
-          <h1>Placeholder h1</h1>
-          <Style sheet={sheet} />
-        </header>
+        <Scene>
+          <Entity geometry={{ primitive: 'box' }} material={{ color: 'red' }} position={{ x: 0, y: 0, z: -5 }} />
+          <Entity light={{ type: 'point' }} />
+          {/* <Entity gltf-model={{ src: 'virtualcity.gltf' }} /> */}
+          <Entity text={{ value: 'Hello, WebVR!' }} />
+        </Scene>
+        <Style sheet={sheet} />
       </main>
     )
-  }
-}
+  },
+  ssr: false
+})
 
-export default Layout
+export default () => <Layout />
