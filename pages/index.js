@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Style from '../components/general/style'
 import sheet from '../components/base.scss'
+import 'aframe'
 
 export class Layout extends Component {
   constructor (props, context) {
