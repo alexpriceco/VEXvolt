@@ -16,7 +16,7 @@ export class Layout extends Component {
     return (
       <main>
         <header>
-          <h1>VEXvolt website</h1>
+          <h1>Placeholder h1</h1>
           <Style sheet={sheet} />
         </header>
       </main>
