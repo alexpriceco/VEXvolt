@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import Style from '../components/general/style'
 import sheet from '../components/base.scss'
-import 'aframe'
+
+import dynamic from 'next/dynamic'
+dynamic(import('aframe'), { ssr: false }) // eslint-disable-line
 
 export class Layout extends Component {
   constructor (props, context) {
