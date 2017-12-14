@@ -1,48 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
+  <html>
 	<head>
+    <meta charset='utf-8'>
+	  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	  <meta name='viewport' content='width=device-width, initial-scale=1'>
+	  <meta name='description' content='No more dead robots—always know how much energy your VEX batteries have left.'>
 		<meta charset=utf-8>
-		<title>Threejs test</title>
-		<style>
-			body { margin: 0; }
-			canvas { width: 100%; height: 100% }
-		</style>
+
+    <title>VEXvolt</title>
+
+    <link rel='stylesheet' href='style/base.css?v=1.0'>
 	</head>
 	<body>
 		<script src='js/three.js'></script>
 		<script src='js/GLTFLoader.js'></script>
 		<script>
       /* global THREE */
+      const {
+        innerWidth: width,
+        innerHeight: height
+      } = window
+      const aspectRatio = width / height
       const scene = new THREE.Scene()
-      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
-
-      // example code below
+      const camera = new THREE.PerspectiveCamera(2, aspectRatio, 0.1, 1000)
       const renderer = new THREE.WebGLRenderer()
-      renderer.setSize(window.innerWidth, window.innerHeight)
+      enderer.setSize(window.innerWidth, window.innerHeight)
+
+      let pixelRatio = window.devicePixelRatio || 0
+      renderer.setSize(width, height)
+      composer.setSize(width * pixelRatio, height * pixelRatio)
+
       document.body.appendChild(renderer.domElement)
+
+      var pointLight = new THREE.PointLight(0xB5A477, 1, 100)
+      pointLight.position.set(10, 10, 10)
+      scene.add(pointLight)
+
+      var sphereSize = 1
+      var pointLightHelper = new THREE.PointLightHelper(pointLight, sphereSize)
+      scene.add(pointLightHelper)
 
       const loader = new THREE.GLTFLoader()
       loader.load(
         'media/voltmeter.glb',
         (glb) => {
           camera.position.z = 5
+          glb.scene.rotation.x = 1.5
+          // mesh.geometry.computeBoundingSphere()
           scene.add(glb.scene)
-          glb.scene.rotation.z = 100
-          glb.scene.scale.x = 25
-          glb.scene.scale.y = 25
-          glb.scene.scale.z = 25
-          console.info(glb.scene)
+          console.info(renderer)
 
           function animate () {
             /* global requestAnimationFrame */
             requestAnimationFrame(animate)
-            glb.scene.rotation.x += 0.01
+            glb.scene.rotation.z += 0.01
             renderer.render(scene, camera)
           }
           animate()
-        },
-        (xhr) => {
-          console.log((xhr.loaded / xhr.total * 100) + '% loaded')
         }, (err) => console.error('3JS ERR', err)
       )
 		</script>
