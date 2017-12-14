@@ -25,11 +25,9 @@
       const scene = new THREE.Scene()
       const camera = new THREE.PerspectiveCamera(2, aspectRatio, 0.1, 1000)
       const renderer = new THREE.WebGLRenderer()
-      enderer.setSize(window.innerWidth, window.innerHeight)
+      renderer.setSize(window.innerWidth, window.innerHeight)
 
-      let pixelRatio = window.devicePixelRatio || 0
       renderer.setSize(width, height)
-      composer.setSize(width * pixelRatio, height * pixelRatio)
 
       document.body.appendChild(renderer.domElement)
 
@@ -49,7 +47,7 @@
           glb.scene.rotation.x = 1.5
           // mesh.geometry.computeBoundingSphere()
           scene.add(glb.scene)
-          console.info(renderer)
+          console.info(glb)
 
           function animate () {
             /* global requestAnimationFrame */
