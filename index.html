@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>Threejs test</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+		<script src='js/three.js'></script>
+		<script src='js/GLTFLoader.js'></script>
+		<script>
+      /* global THREE */
+      const scene = new THREE.Scene()
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+
+      // example code below
+      const renderer = new THREE.WebGLRenderer()
+      renderer.setSize(window.innerWidth, window.innerHeight)
+      document.body.appendChild(renderer.domElement)
+
+      const loader = new THREE.GLTFLoader()
+      loader.load(
+        'media/voltmeter.glb',
+        (glb) => {
+          camera.position.z = 5
+          scene.add(glb.scene)
+          glb.scene.rotation.z = 100
+          glb.scene.scale.x = 25
+          glb.scene.scale.y = 25
+          glb.scene.scale.z = 25
+          console.info(glb.scene)
+
+          function animate () {
+            /* global requestAnimationFrame */
+            requestAnimationFrame(animate)
+            glb.scene.rotation.x += 0.01
+            renderer.render(scene, camera)
+          }
+          animate()
+        },
+        (xhr) => {
+          console.log((xhr.loaded / xhr.total * 100) + '% loaded')
+        }, (err) => console.error('3JS ERR', err)
+      )
+		</script>
+	</body>
+</html>
