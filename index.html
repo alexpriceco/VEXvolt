@@ -15,90 +15,15 @@
 	<body>
     <section>
       <header>
-        <h1 class='bold'>VEXvolt</h1>
+        <h1 class='bold'>VEXvolt&nbsp;</h1>
         <h1>lets you focus</h1>
         <br>
-        <h1 class='bold'>less</h1>
+        <h1 class='bold'>less&nbsp;</h1>
         <h1>on batteries, and</h1>
         <br>
-        <h1 class='bold'>more</h1>
+        <h1 class='bold'>more&nbsp;</h1>
         <h1>on robots.</h1>
       </header>
     </section>
-
-		<script src='js/three.js'></script>
-    <script src='js/GLTFLoader.js'></script>
-		<script>
-      /* global THREE */
-      const {
-        innerWidth: width,
-        innerHeight: height
-      } = window
-      const aspectRatio = width / height
-      const scene = new THREE.Scene()
-
-      const camera = new THREE.PerspectiveCamera(100, aspectRatio, 0.1, 1000)
-      camera.position.set(0, 100, 10)
-      camera.lookAt(0, 0, 10)
-      scene.add(camera)
-
-      let renderer = new THREE.WebGLRenderer({ antialias: true })
-      renderer.setSize(window.innerWidth, window.innerHeight)
-      renderer.setPixelRatio(window.devicePixelRatio)
-
-      document.body.appendChild(renderer.domElement)
-
-      let pointLight = new THREE.PointLight(0xDDDDDD, 0.5, 200)
-      // pointLight.position.set(10, 80, -5)
-      pointLight.position.set(10, 80, 15)
-      scene.add(pointLight)
-
-      // HELPERS - LIGHT
-      // let sphereSize = 1
-      // let pointLightHelper = new THREE.PointLightHelper(pointLight, sphereSize)
-      // scene.add(pointLightHelper)
-
-      const loader = new THREE.GLTFLoader()
-      async function loadModel () {
-        return new Promise((resolve, reject) => {
-          loader.load(
-            'media/voltmeter.glb',
-            (data) => resolve(data.scene),
-            (err) => console.error('3JS ERR', err)
-          )
-        })
-      }
-
-      loadModel().then((data) => {
-        const body = data.children[0].children[0].children[0].children[0]
-        const cover = data.children[0].children[0].children[1].children[0]
-        // glb.scene.rotation.x = 1.5
-
-        let assembly = new THREE.Group()
-        assembly.add(cover)
-        assembly.add(body)
-        console.info(body, cover)
-        assembly.position.set(0, 0, 0)
-
-        let box = new THREE.Box3() // eslint-disable-line
-          .setFromObject(assembly)
-          .getCenter(assembly.position)
-          .multiplyScalar(-1)
-
-        const pi = 3.14159
-        scene.add(assembly)
-        assembly.rotation.x = pi * 1.5
-        assembly.rotation.y = pi * 2
-        assembly.rotation.z = pi * 2
-
-        function animate () {
-          /* global requestAnimationFrame */
-          requestAnimationFrame(animate)
-          assembly.rotation.y += 0.01
-          renderer.render(scene, camera)
-        }
-        animate()
-      })
-		</script>
 	</body>
 </html>

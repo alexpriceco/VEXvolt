@@ -7,12 +7,12 @@ body {
   font: $base-font;
   background: #EDEDED;
   color: $black;
+
+  display: flex;
+  flex-direction: row;
 }
 
 section {
-  position: absolute;
-  margin-left: 50vw;
-  width: 50vw;
   height: 100vh;
 
   display: flex;
@@ -20,17 +20,21 @@ section {
   justify-content: center;
 }
 
+header {
+  padding: 2em;
+}
+
 h1 {
   font-size: 3em;
   line-height: 1.5em;
-  font-weight: 300;
+  font-weight: 400;
   margin: 0;
 
   display: inline-block;
 }
 
 h1.bold {
-  font-weight: 900;
+  font-weight: 700;
 }
 
 canvas {
