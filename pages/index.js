@@ -3,21 +3,6 @@ import React, { Component } from 'react'
 import Stylesheet from '../components/stylesheet.js'
 import sheet from '../components/base.scss'
 
-import Child from '../components/child/child.js'
-
-// TODO: Uncomment if you want Firebase
-// import config from '../config/firebase-api-key.js'
-// import * as firebase from 'firebase'
-// require('firebase/firestore')
-// if (!firebase.apps.length) {
-//   console.log(
-//     '%cCreating a new firebase instance...',
-//     'color: grey; font-style: italic'
-//   )
-//
-//   firebase.initializeApp(config)
-// }
-
 export class Index extends Component {
   constructor (props, context) {
     super(props, context)
@@ -33,50 +18,49 @@ export class Index extends Component {
   componentDidMount () {
     console.debug('Loaded')
     this.setState({ loading: false })
-
-  // TODO: uncomment if you want Firebase
-  //   this.getDataFromFirebase().then((data) => {
-  //     this.setState({
-  //       loading: false,
-  //       data
-  //     })
-  //   }).catch((error) => {
-  //     this.setState({
-  //       loading: false,
-  //       error
-  //     })
-  //   })
   }
 
-  // TODO: uncomment if you want Firebase
-  // async getDataFromFirebase () {
-  //   const rootCollection = firebase.firestore().collection('triplebyte')
-  //   const rootDoc = await rootCollection.doc('root').get()
-  //   return rootDoc.data()
-  // }
-
   render () {
-    if (this.state.loading) {
-      return (
-        <main>
-          Just a second...
-          <Stylesheet sheet={sheet} />
-        </main>
-      )
-    } else if (this.state.error) {
-      return (
-        <main>
-          <h1>That's bad. The following error occurred:</h1>
-          <div className='error'>{this.state.error}</div>
-          <Stylesheet sheet={sheet} />
-        </main>
-      )
-    }
-
     return (
       <main>
-        <h1>App title</h1>
-        <Child data={this.state.data} />
+        <header>
+          <article>
+            <h1>Stop digging through piles of batteries</h1>
+            <p>VEXvolt delivers fast, accurate battery voltage, so you can focus on robots, not batteries.</p>
+          </article>
+        </header>
+
+        <section>
+          <article>
+            <h1>Designed for you</h1>
+            <p>VEXvolt was originally designed in a high school, then constantly improved with user feedback.</p>
+          </article>
+        </section>
+
+        <section>
+          <article>
+            <h1>Competition ready</h1>
+            <p>3d printed in black photopolymer resin, and assembled by hand, VEXvolt is built for durability.</p>
+          </article>
+        </section>
+
+        <section>
+          <article>
+            <h1>Performance first</h1>
+            <p>VEXvolt is fast, and easy to use. Less complication means less time spent getting a reading.</p>
+          </article>
+        </section>
+
+        <section>
+          <article>
+            <h1>Designed for you</h1>
+            <p>VEXvolt was originally designed in a high school, then constantly improved with user feedback.</p>
+          </article>
+        </section>
+
+        <footer>
+          footer stuff here
+        </footer>
         <Stylesheet sheet={sheet} />
       </main>
     )
