@@ -4,4 +4,4 @@ A marketing site for the patent-pending electronics product, VEXvolt. The site i
 
 Some notable technical features are the countdown component, and the video comparison component, but you can see a preview of the site below, or live, at [vexvolt.com](https://vexvolt.com).
 
-![design preview][https://raw.githubusercontent.com/alexpriceco/VEXvolt/master/preview.png]
+![design preview](https://raw.githubusercontent.com/alexpriceco/VEXvolt/master/preview.png)
