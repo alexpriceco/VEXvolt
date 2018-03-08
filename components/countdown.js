@@ -15,13 +15,13 @@ export default class Countdown extends Component {
 
   componentDidMount () {
     const target = new Date('March 15, 2018 8:00 CST')
-    let seconds = (target - new Date()) / 1000
+    let diff = (target - new Date()) / 1000
 
-    let days = (seconds / 60 / 60 / 24) | 0
-    // let hours = (seconds % (60 * 60 * 24)) / (60 * 60)
-    // let minutes = seconds / 60
+    let days = (diff / 60 / 60 / 24) | 0
+    let hours = ((diff - (days * 60 * 60 * 24)) / 60 / 60) | 0
+    let seconds = ((diff - (hours * 60 * 60)) / 60) | 0
 
-    console.debug(days)
+    console.debug(days, hours, seconds)
     // this.setState({ days, hours, minutes })
   }
 
