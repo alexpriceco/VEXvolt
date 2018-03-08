@@ -76,6 +76,15 @@ section {
     box-sizing: border-box;
   }
 
+  article.technical-drawings {
+    display: flex;
+    flex-direction: row;
+
+    svg:nth-child(n + 2) {
+      margin-left: 2em;
+    }
+  }
+
   div.video-container {
     position: relative;
     z-index: -1;
