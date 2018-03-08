@@ -14,15 +14,22 @@ export default class Countdown extends Component {
   }
 
   componentDidMount () {
+    const { days, hours, minutes: mins } = this.state
+    if (days === hours && hours === mins && mins === 0) this.updateCountdown()
+  }
+
+  updateCountdown () {
+    console.info('updating countdown')
     const target = new Date('March 15, 2018 8:00 CST')
     let diff = (target - new Date()) / 1000
 
     let days = (diff / 60 / 60 / 24) | 0
     let hours = ((diff - (days * 60 * 60 * 24)) / 60 / 60) | 0
-    let seconds = ((diff - (hours * 60 * 60)) / 60) | 0
+    let minutes = ((diff - (hours * 60 * 60) - (days * 60 * 60 * 24)) / 60) | 0
 
-    console.debug(days, hours, seconds)
-    // this.setState({ days, hours, minutes })
+    this.setState({ days, hours, minutes }, () => {
+      setTimeout(() => { this.updateCountdown() }, 30000)
+    })
   }
 
   render () {
