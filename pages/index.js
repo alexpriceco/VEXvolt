@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import Countdown from '../components/countdown.js'
 import Squared from '../components/squared.js'
 
 import Stylesheet from '../components/stylesheet.js'
@@ -112,9 +113,7 @@ export class Index extends Component {
 
         <section className='centered'>
           <article>
-            campaign countdown
-            back button
-            questions?
+            <Countdown />
           </article>
           <Squared flipped />
         </section>
