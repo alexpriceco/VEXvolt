@@ -53,7 +53,6 @@ section {
   }
 
   p {
-    max-width: 14em;
     font-size: 1.5em;
     line-height: 1.75em;
     color: rgba($white, 0.8);
@@ -69,10 +68,12 @@ section {
 
   article {
     display: flex;
-    flex-grow: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0 12vw;
+    width: 50vw;
+    box-sizing: border-box;
   }
 
   div.video-container {
@@ -93,15 +94,15 @@ section {
 
 svg.squared {
   position: absolute;
-  left: 2em;
+  left: 12vw;
   top: 0;
 
-  transform: translateY(-50%);
+  transform: translateY(-50%) translateX(-100%);
   z-index: 10;
 
   &.flipped {
-    right: 2em;
+    right: 12vw;
     left: auto;
-    transform: translateY(-50%) rotate(180deg);
+    transform: translateY(-50%) translateX(100%) rotate(180deg);
   }
 }
