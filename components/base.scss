@@ -19,19 +19,41 @@ h1 {
   font-size: 2.25em;
 }
 
+header {
+  position: relative;
+  min-height: calc(100vh - 8em);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    max-width: 10em;
+    line-height: 1.5em;
+  }
+
+  p {
+    font-size: 1.5em;
+    line-height: 1.75em;
+    max-width: 14em;
+    color: rgba($white, 0.8);
+  }
+}
+
 section {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   min-height: 80vh;
+  position: relative;
 
-  h1, p {
-    max-width: 16em;
+  h1 {
+    color: $white;
   }
 
-  h1 { color: $white; }
   p {
+    max-width: 14em;
     font-size: 1.5em;
     line-height: 1.75em;
     color: rgba($white, 0.8);
@@ -44,12 +66,22 @@ section {
     h1 { color: $black; }
     p { color: rgba($black, 0.8); }
   }
+
+  &.centered {
+    min-height: 100vh;
+  }
 }
 
-header {
-  min-height: calc(100vh - 8em);
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+.squared {
+  position: absolute;
+  left: 2em;
+  top: 0;
+
+  transform: translateY(-50%);
+
+  &.flipped {
+    right: 2em;
+    left: auto;
+    transform: translateY(-50%) rotateX(180deg);
+  }
 }

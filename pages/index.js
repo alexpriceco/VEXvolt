@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import Squared from '../components/squared.js'
+
 import Stylesheet from '../components/stylesheet.js'
 import sheet from '../components/base.scss'
 
@@ -35,6 +37,7 @@ export class Index extends Component {
             <h1>Designed for you</h1>
             <p>VEXvolt was originally designed in a high school, then constantly improved with user feedback.</p>
           </article>
+          <Squared />
         </section>
 
         <section>
@@ -42,6 +45,7 @@ export class Index extends Component {
             <h1>Competition ready</h1>
             <p>3d printed in black photopolymer resin, and assembled by hand, VEXvolt is built for durability.</p>
           </article>
+          <Squared flipped />
         </section>
 
         <section>
@@ -49,13 +53,16 @@ export class Index extends Component {
             <h1>Performance first</h1>
             <p>VEXvolt is fast, and easy to use. Less complication means less time spent getting a reading.</p>
           </article>
+          <Squared />
         </section>
 
-        <section>
+        <section className='centered'>
           <article>
-            <h1>Designed for you</h1>
-            <p>VEXvolt was originally designed in a high school, then constantly improved with user feedback.</p>
+            campaign countdown
+            back button
+            questions?
           </article>
+          <Squared flipped />
         </section>
 
         <footer>
