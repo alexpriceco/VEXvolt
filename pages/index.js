@@ -34,24 +34,37 @@ export class Index extends Component {
 
         <section>
           <article>
-            <h1>Designed for you</h1>
-            <p>VEXvolt was originally designed in a high school, then constantly improved with user feedback.</p>
+            <div>
+              <h1>Designed for you</h1>
+              <p>VEXvolt was originally designed in a high school, then constantly improved with user feedback.</p>
+            </div>
           </article>
           <Squared />
         </section>
 
         <section>
           <article>
-            <h1>Competition ready</h1>
-            <p>3d printed in black photopolymer resin, and assembled by hand, VEXvolt is built for durability.</p>
+            <div>
+              <h1>Competition ready</h1>
+              <p>3d printed in black photopolymer resin, and assembled by hand, VEXvolt is built for durability.</p>
+            </div>
           </article>
+
+          <div className='video-container'>
+            <video loop autoPlay playsInline
+              src='https://builtvisible.com/wp-content/uploads/2016/05/demo1-mp4.mp4'
+            />
+          </div>
+
           <Squared flipped />
         </section>
 
         <section>
           <article>
-            <h1>Performance first</h1>
-            <p>VEXvolt is fast, and easy to use. Less complication means less time spent getting a reading.</p>
+            <div>
+              <h1>Performance first</h1>
+              <p>VEXvolt is fast, and easy to use. Less complication means less time spent getting a reading.</p>
+            </div>
           </article>
           <Squared />
         </section>

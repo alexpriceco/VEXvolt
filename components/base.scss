@@ -45,7 +45,7 @@ section {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
+  min-height: 50vw;
   position: relative;
 
   h1 {
@@ -67,21 +67,41 @@ section {
     p { color: rgba($black, 0.8); }
   }
 
+  article {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  div.video-container {
+    position: relative;
+    z-index: -1;
+    opacity: 0.5;
+
+    > video {
+      min-height: 50vw;
+      width: auto;
+    }
+  }
+
   &.centered {
     min-height: 100vh;
   }
 }
 
-.squared {
+svg.squared {
   position: absolute;
   left: 2em;
   top: 0;
 
   transform: translateY(-50%);
+  z-index: 10;
 
   &.flipped {
     right: 2em;
     left: auto;
-    transform: translateY(-50%) rotateX(180deg);
+    transform: translateY(-50%) rotate(180deg);
   }
 }
