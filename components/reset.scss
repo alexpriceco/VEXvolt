@@ -1,13 +1,6 @@
 @import 'vars';
 @import 'mixins';
 
-*:not(input) {
-	-webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 html, body {
 	min-height: 100%;
 	min-width: 100%;

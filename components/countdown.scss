@@ -20,6 +20,7 @@
 
   span {
     letter-spacing: 0.25em;
+    @include transform(translateX(0.125em));
   }
 
   > div {
