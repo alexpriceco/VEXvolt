@@ -81,10 +81,7 @@ span.before {
   pointer-events: none;
   opacity: 0;
 
-  &.open {
-    pointer-events: all;
-    opacity: 1;
-  }
+  @include ease(200ms);
 
   .modal {
     display: flex;
@@ -96,6 +93,9 @@ span.before {
     background: $white;
     border-radius: 0.5em;
     @include box-shadow(0.5em, 0, 1em, 0, rgba($black, 0.5));
+    @include transform(translateY(2em));
+    @include transition-delay(100ms);
+    @include ease(200ms);
 
     h2 { margin: 0; }
     P { font-size: 1.25em; }
@@ -109,5 +109,17 @@ span.before {
       margin-top: 1em;
       font-size: 1.25em;
     }
+  }
+
+  &.open {
+    @include transition-delay(0);
+
+    .modal {
+      @include transition-delay(0);
+      @include transform(translateY(0));
+    }
+
+    pointer-events: all;
+    opacity: 1;
   }
 }
