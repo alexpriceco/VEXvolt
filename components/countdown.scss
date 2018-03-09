@@ -1,6 +1,18 @@
 @import 'vars';
 @import 'mixins';
 
+span.before {
+  color: $orange;
+  text-align: center;
+  margin: 1em auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  letter-spacing: 0.25em;
+  @include transform(translateX(0.125em));
+}
+
 .countdown {
   border: 2px solid $orange;
   border-radius: 0.5em;
@@ -9,7 +21,6 @@
   flex-direction: row;
   justify-content: space-between;
   width: 16em;
-
   color: $orange;
 
   h2 {

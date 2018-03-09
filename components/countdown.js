@@ -7,9 +7,9 @@ export default class Countdown extends Component {
   constructor (props, context) {
     super(props, context)
     this.state = {
-      days: 0,
+      minutes: 0,
       hours: 0,
-      minutes: 0
+      days: 0
     }
   }
 
@@ -19,7 +19,6 @@ export default class Countdown extends Component {
   }
 
   updateCountdown () {
-    console.info('updating countdown')
     const target = new Date('March 15, 2018 8:00 CST')
     let diff = (target - new Date()) / 1000
 
@@ -28,7 +27,7 @@ export default class Countdown extends Component {
     let minutes = ((diff - (hours * 60 * 60) - (days * 60 * 60 * 24)) / 60) | 0
 
     this.setState({ days, hours, minutes }, () => {
-      setTimeout(() => { this.updateCountdown() }, 30000)
+      setTimeout(() => { this.updateCountdown() }, 15000)
     })
   }
 
@@ -41,6 +40,7 @@ export default class Countdown extends Component {
 
     return (
       <div>
+        <span className='before'>CAMPAIGN BEGINS IN</span>
         <div className='countdown'>
           <div className='days'>
             <h2>{days}</h2>
