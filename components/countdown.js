@@ -7,6 +7,7 @@ export default class Countdown extends Component {
   constructor (props, context) {
     super(props, context)
     this.state = {
+      modalOpen: false,
       minutes: 0,
       hours: 0,
       days: 0
@@ -35,7 +36,8 @@ export default class Countdown extends Component {
     const {
       days,
       hours,
-      minutes
+      minutes,
+      modalOpen
     } = this.state
 
     return (
@@ -53,6 +55,26 @@ export default class Countdown extends Component {
           <div className='minutes'>
             <h2>{minutes}</h2>
             <span>MINS</span>
+          </div>
+        </div>
+
+        <div className='button' onClick={() => {
+          this.setState({ modalOpen: true })
+        }}>
+          Keep me informed
+        </div>
+
+        <div
+          ref={(ref) => { this.modalRef = ref }}
+          className={'modal--wrapper ' + (modalOpen ? ' open' : '')}
+          onClick={(e) => {
+            if (e.target === this.modalRef) this.setState({ modalOpen: false })
+          }}
+        >
+          <div className='modal'>
+            <h2>Stay in the know.</h2>
+            <p>You'll get an email (and only one!) from me when we're set to launch the campaign.</p>
+            <input type='email' />
           </div>
         </div>
 
