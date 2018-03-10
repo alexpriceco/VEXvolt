@@ -7,6 +7,7 @@ export default class Countdown extends Component {
   constructor (props, context) {
     super(props, context)
     this.state = {
+      email: '',
       modalOpen: false,
       minutes: 0,
       hours: 0,
@@ -37,8 +38,11 @@ export default class Countdown extends Component {
       days,
       hours,
       minutes,
-      modalOpen
+      modalOpen,
+      email
     } = this.state
+
+    console.info(this.state)
 
     return (
       <div>
@@ -74,7 +78,18 @@ export default class Countdown extends Component {
           <div className='modal'>
             <h2>Stay in the know.</h2>
             <p>You'll get an email (and only one!) from me when we're set to launch the campaign.</p>
-            <input type='email' />
+            <div className='input-wrapper'>
+              <span className={'placeholder' + (email !== '' ? ' hidden' : '')}>your.email@gmail.com</span>
+              <input
+                defaultValue={email || ''}
+                onChange={(e) => {
+                  this.setState({
+                    email: e.target.value || ''
+                  })
+                }}
+              />
+              <div className='continue-button'>&rarr;</div>
+            </div>
           </div>
         </div>
 
