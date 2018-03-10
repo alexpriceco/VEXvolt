@@ -34,8 +34,16 @@ header {
   min-height: calc(100vh - 8em);
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+
+  article {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
   h1 {
     max-width: 10em;
@@ -47,6 +55,42 @@ header {
     line-height: 1.75em;
     max-width: 14em;
     color: rgba($white, 0.8);
+  }
+
+  > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 8em);
+    width: 50vw;
+
+    img {
+      width: 50vw;
+    }
+  }
+}
+
+footer {
+  width: 100vw;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: $orange-darker;
+  font-size: 1em;
+  letter-spacing: 0.2em;
+  padding: 2em 12vw;
+
+  a, a:visited {
+    color: $orange-darker;
+    text-decoration: none;
+    @include ease(100ms);
+
+    &:hover {
+      color: $orange;
+    }
   }
 }
 
@@ -123,5 +167,21 @@ svg.squared {
     right: 12vw;
     left: auto;
     transform: translateY(-50%) translateX(100%) rotate(180deg);
+  }
+}
+
+// from: medium.freecodecamp.org/
+// the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862
+@mixin for-size($size) {
+  @if $size == phone-only {
+    @media (max-width: 599px) { @content; }
+  } @else if $size == tablet-portrait-up {
+    @media (min-width: 600px) { @content; }
+  } @else if $size == tablet-landscape-up {
+    @media (min-width: 900px) { @content; }
+  } @else if $size == desktop-up {
+    @media (min-width: 1440px) { @content; }
+  } @else if $size == big-desktop-up {
+    @media (min-width: 1800px) { @content; }
   }
 }

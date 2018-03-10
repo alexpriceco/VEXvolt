@@ -25,9 +25,14 @@ export class Index extends Component {
       <main>
         <header>
           <article>
-            <h1>Stop digging through piles of batteries</h1>
-            <p>VEXvolt delivers fast, accurate battery voltage, so you can focus on robots, not batteries.</p>
+            <div>
+              <h1>Stop digging through piles of batteries</h1>
+              <p>VEXvolt delivers fast, accurate battery voltage, so you can focus on robots, not batteries.</p>
+            </div>
           </article>
+          <div>
+            <img src='/static/cover.png' />
+          </div>
         </header>
 
         <section>
@@ -119,7 +124,11 @@ export class Index extends Component {
         </section>
 
         <footer>
-          footer stuff here
+          <span>PATENT 20170288357A1</span>
+          <svg width='24' height='24' viewBox='0 0 24 24'>
+            <path fill='#FFB900' fillRule='evenodd' clipRule='evenodd' d='M 7.08355 13.5161L 7.14153 13.3655L 8.07712 10.9349L 3.91739 1.9126L 0.997496 0.882218L 5.61255 10.1565L 5.67319 10.2783L 5.66369 10.4141L 5.42236 13.8627L 8.81971 20.1214L 7.12458 13.6722L 7.08355 13.5161ZM 16.8545 13.5161L 16.8135 13.6722L 15.1184 20.1215L 18.5158 13.8627L 18.2745 10.4141L 18.265 10.2783L 18.3256 10.1565L 22.9407 0.882201L 20.0209 1.91252L 15.8611 10.9349L 16.7966 13.3655L 16.8545 13.5161Z' />
+          </svg>
+          <span>DESIGN BY <a href='https://alexprice.co' title='ALEXPRICe.CO'>ALEXPRICE.CO</a></span>
         </footer>
         <Stylesheet sheet={sheet} />
       </main>

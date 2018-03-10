@@ -1,8 +1,8 @@
 {
-  "name": "start-building",
+  "name": "VEXvolt",
   "version": "1.0.0",
   "repository": {
-    "url": "git@github.com:alexpriceco/start-building.git",
+    "url": "git@github.com:alexpriceco/VEXvolt.git",
     "type": "git"
   },
   "author": "Alex Price <alex@alexprice.co>",
