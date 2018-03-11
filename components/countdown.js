@@ -8,6 +8,7 @@ export default class Countdown extends Component {
     super(props, context)
     this.state = {
       email: '',
+      valid: false,
       modalOpen: false,
       minutes: 0,
       hours: 0,
@@ -78,13 +79,14 @@ export default class Countdown extends Component {
           <div className='modal'>
             <h2>Stay in the know.</h2>
             <p>You'll get an email (and only one!) from me when we're set to launch the campaign.</p>
-            <div className='input-wrapper'>
+            <div className={'input-wrapper' + (this.state.valid ? ' valid' : '')}>
               <span className={'placeholder' + (email !== '' ? ' hidden' : '')}>your.email@gmail.com</span>
               <input
                 defaultValue={email || ''}
                 onChange={(e) => {
                   this.setState({
-                    email: e.target.value || ''
+                    email: e.target.value || '',
+                    valid: (/\S+@\S+\.\S+/).test(e.target.value || '')
                   })
                 }}
               />
