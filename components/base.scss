@@ -174,6 +174,7 @@ section {
     }
 
     @include for-size(desktop-up) {
+      svg:last-child { display: unset; }
       margin-left: 12vw;
       margin-right: 0;
     }
@@ -183,10 +184,25 @@ section {
     position: relative;
     z-index: -1;
     opacity: 0.5;
+    overflow: hidden;
+    width: 50vw;
+
+    @include for-size(tablet-portrait-up) {
+      min-height: 80vw;
+    }
+
+    @include for-size(tablet-landscape-up) {
+      min-height: 50vw;
+    }
 
     > video {
-      min-height: 50vw;
-      width: auto;
+      position: absolute;
+      object-fit: cover;
+      left: 0;
+      top: 0;
+
+      min-height: 100%;
+      min-width: 100%;
     }
   }
 
