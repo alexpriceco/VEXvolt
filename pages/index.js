@@ -16,7 +16,6 @@ export class Index extends Component {
   }
 
   componentDidMount () {
-    console.debug('Loaded')
     this.setState({ loading: false })
   }
 
@@ -99,7 +98,7 @@ export class Index extends Component {
 
           <div className='video-container'>
             <video loop autoPlay playsInline
-              src='https://builtvisible.com/wp-content/uploads/2016/05/demo1-mp4.mp4'
+              src='static/cover.mp4'
             />
           </div>
 
