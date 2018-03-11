@@ -96,11 +96,20 @@ footer {
 
 section {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
-  min-height: 50vw;
   position: relative;
+
+  @include for-size(tablet-portrait-up) {
+    min-height: 80vw;
+  }
+
+  @include for-size(tablet-landscape-up) {
+    justify-content: center;
+    flex-direction: row;
+    min-height: 50vw;
+  }
 
   h1 {
     color: $white;
@@ -122,20 +131,51 @@ section {
 
   article {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0 12vw;
-    width: 50vw;
     box-sizing: border-box;
+    flex-direction: column;
+    align-items: flex-start;
+
+    > div {
+      max-width: 22em;
+    }
+
+    @include for-size(tablet-portrait-up) {
+      padding-top: 10vh;
+      justify-content: center;
+      margin-left: 12vw;
+      flex-grow: 1;
+      width: 88vw;
+      order: 1;
+    }
+
+    @include for-size(tablet-landscape-up) {
+      padding-top: 0;
+      width: 50vw;
+      order: unset;
+    }
   }
 
-  article.technical-drawings {
+  div.technical-drawings {
     display: flex;
     flex-direction: row;
 
-    svg:nth-child(n + 2) {
-      margin-left: 2em;
+    @include for-size(tablet-portrait-up) {
+      justify-content: space-between;
+      width: 76vw;
+    }
+
+    @include for-size(tablet-landscape-up) {
+      box-sizing: border-box;
+      svg:last-child { display: none; }
+      svg:nth-child(n + 1) { margin-left: 2em; }
+      justify-content: center;
+      margin-left: 12vw;
+      width: 38vw;
+    }
+
+    @include for-size(desktop-up) {
+      margin-left: 12vw;
+      margin-right: 0;
     }
   }
 
@@ -150,38 +190,52 @@ section {
     }
   }
 
+  > div {
+    @include for-size(tablet-portrait-up) {
+      padding: 10vh 0;
+      order: 2;
+    }
+
+    @include for-size(tablet-landscape-up) {
+      order: unset;
+    }
+  }
+
   &.centered {
     min-height: 100vh;
+    article {
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      margin: 0;
+    }
   }
 }
 
 svg.squared {
   position: absolute;
+  z-index: 10;
   left: 12vw;
   top: 0;
 
-  transform: translateY(-50%) translateX(-100%);
-  z-index: 10;
+  @include for-size(tablet-portrait-up) {
+    transform: translateY(-50%);
+  }
+
+  @include for-size(desktop-up) {
+    transform: translateY(-50%) translateX(-100%);
+  }
 
   &.flipped {
     right: 12vw;
     left: auto;
-    transform: translateY(-50%) translateX(100%) rotate(180deg);
-  }
-}
 
-// from: medium.freecodecamp.org/
-// the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862
-@mixin for-size($size) {
-  @if $size == phone-only {
-    @media (max-width: 599px) { @content; }
-  } @else if $size == tablet-portrait-up {
-    @media (min-width: 600px) { @content; }
-  } @else if $size == tablet-landscape-up {
-    @media (min-width: 900px) { @content; }
-  } @else if $size == desktop-up {
-    @media (min-width: 1440px) { @content; }
-  } @else if $size == big-desktop-up {
-    @media (min-width: 1800px) { @content; }
+    @include for-size(tablet-portrait-up) {
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    @include for-size(desktop-up) {
+      transform: translateY(-50%) translateX(100%) rotate(180deg);
+    }
   }
 }

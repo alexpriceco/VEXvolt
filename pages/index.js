@@ -36,7 +36,7 @@ export class Index extends Component {
         </header>
 
         <section>
-          <article className='technical-drawings'>
+          <div className='technical-drawings'>
             <svg width='112' height='182' viewBox='0 0 112 182'>
               <g id='path0'>
                 <path transform='translate(1 1)' fill='black' fillOpacity='0.05' fillRule='evenodd' clipRule='evenodd' d='M 94 136C 94 112 110 104 110 80L 102 80L 8 80L 0 80C 0 104 16 112 16 136L 16 174C 16 177.314 18.6863 180 22 180L 48 180L 88 180C 91.3137 180 94 177.314 94 174L 94 136ZM 88 128L 61 128L 69 91L 82.5 91L 101.129 87C 97.7914 101.501 88 117.698 88 128ZM 22.1292 128L 49.1292 128L 41.1292 91L 27.6292 91L 9 87C 12.3378 101.501 22.1292 117.698 22.1292 128Z' />
@@ -77,7 +77,7 @@ export class Index extends Component {
 
               <path transform='translate(28 95)' fill='#454545' fillRule='evenodd' clipRule='evenodd' d='M 17.2735 31.5761L 17.3317 31.4252L 19.6217 25.4915L 9.65423 3.92811L 0.998578 0.881541L 12.53 23.9949L 12.5909 24.117L 12.5814 24.2532L 12.0032 32.4933L 22.6898 52.1299L 17.3147 31.7326L 17.2735 31.5761ZM 38.7265 31.5761L 38.6853 31.7326L 33.3103 52.13L 43.9969 32.4933L 43.4188 24.2532L 43.4093 24.117L 43.4702 23.9949L 55.0016 0.881525L 46.3461 3.92793L 36.3786 25.4915L 38.6683 31.4252L 38.7265 31.5761Z' />
             </svg>
-          </article>
+          </div>
 
           <article>
             <div>
