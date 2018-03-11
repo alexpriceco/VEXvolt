@@ -107,6 +107,21 @@ span.before {
     P { font-size: 1.25em; }
     > * { color: $black; }
 
+    &::after {
+      @include ease(200ms);
+      content: 'Tap anywhere to close';
+      position: absolute;
+      font-size: 1.25em;
+      opacity: 0;
+      top: -1em;
+      left: 0;
+    }
+
+    &.submitted::after {
+      opacity: 0.5;
+      top: -2em;
+    }
+
     .input-wrapper {
       display: flex;
       position: relative;

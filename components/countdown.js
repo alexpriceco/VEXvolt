@@ -54,6 +54,7 @@ export default class Countdown extends Component {
       hours,
       minutes,
       modalOpen,
+      submitted,
       email
     } = this.state
 
@@ -90,10 +91,10 @@ export default class Countdown extends Component {
             if (e.target === this.modalRef) this.setState({ modalOpen: false })
           }}
         >
-          <div className='modal'>
+          <div className={'modal' + (submitted ? ' submitted' : '')}>
             <h2>Stay in the know.</h2><p>You'll get an email (and only one!) from me when we're set to launch the campaign.</p>
 
-            <div className={'input-wrapper' + (this.state.valid ? ' valid' : '') + (this.state.submitted ? ' success' : '')}>
+            <div className={'input-wrapper' + (this.state.valid ? ' valid' : '') + (submitted ? ' success' : '')}>
               <span className='success'>Done! I'll email you soon!</span>
               <span className={'placeholder' + (email !== '' ? ' hidden' : '')}>your.email@gmail.com</span>
               <input
