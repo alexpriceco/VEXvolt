@@ -155,12 +155,12 @@ span.before {
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #CCCCCC;
-      color: $black;
       cursor: pointer;
       pointer-events: all;
-      z-index: 0;
+      background: #CCCCCC;
+      color: $black;
       width: 1.5em;
+      z-index: 0;
 
       -webkit-transition:
         all 0.25s cubic-bezier(0.420, 0.000, 0.580, 1.000),
@@ -181,6 +181,34 @@ span.before {
         padding-left: 0.85em;
         padding-right: 1.15em;
         background: $orange;
+      }
+    }
+
+    span.success {
+      padding-bottom: 0.8em;
+      padding-top: 0.8em;
+      font-size: 1.25em;
+      color: #69B253;
+      opacity: 0;
+
+      @include ease(200ms);
+      @include transition-delay(200ms);
+      @include transform(translateY(0.5em));
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .input-wrapper.success {
+      input, div.continue-button {
+        @include transform(translateY(-0.5em));
+        pointer-events: none;
+        opacity: 0;
+      }
+
+      span.success {
+        opacity: 1;
+        @include transform(translateY(0));
       }
     }
 

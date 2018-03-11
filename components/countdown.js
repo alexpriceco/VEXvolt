@@ -9,6 +9,7 @@ export default class Countdown extends Component {
     this.state = {
       email: '',
       valid: false,
+      submitted: false,
       modalOpen: false,
       minutes: 0,
       hours: 0,
@@ -32,6 +33,19 @@ export default class Countdown extends Component {
     this.setState({ days, hours, minutes }, () => {
       setTimeout(() => { this.updateCountdown() }, 15000)
     })
+  }
+
+  submit () {
+    const email = '*' + this.state.email + '*'
+    const data = JSON.stringify({
+      text: email + ' wants to be emailed at launch!'
+    })
+    const req = new XMLHttpRequest() // eslint-disable-line
+    const slackWebhook = 'https://hooks.slack.com/services/' +
+      'T076KJELT/B9NSTDVDL/wdTBx63P3lag8w71lyvJZ6b5'
+    req.open('POST', slackWebhook, true)
+    req.send(data)
+    this.setState({ submitted: true })
   }
 
   render () {
@@ -77,12 +91,16 @@ export default class Countdown extends Component {
           }}
         >
           <div className='modal'>
-            <h2>Stay in the know.</h2>
-            <p>You'll get an email (and only one!) from me when we're set to launch the campaign.</p>
-            <div className={'input-wrapper' + (this.state.valid ? ' valid' : '')}>
+            <h2>Stay in the know.</h2><p>You'll get an email (and only one!) from me when we're set to launch the campaign.</p>
+
+            <div className={'input-wrapper' + (this.state.valid ? ' valid' : '') + (this.state.submitted ? ' success' : '')}>
+              <span className='success'>Done! I'll email you soon!</span>
               <span className={'placeholder' + (email !== '' ? ' hidden' : '')}>your.email@gmail.com</span>
               <input
                 defaultValue={email || ''}
+                onKeyUp={(e) => {
+                  if (e.key === 'Enter' && this.state.valid) this.submit()
+                }}
                 onChange={(e) => {
                   this.setState({
                     email: e.target.value || '',
@@ -90,7 +108,9 @@ export default class Countdown extends Component {
                   })
                 }}
               />
-              <div className='continue-button'>&rarr;</div>
+              <div
+                className='continue-button'
+                onClick={() => this.submit()}>&rarr;</div>
             </div>
           </div>
         </div>
