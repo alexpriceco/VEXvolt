@@ -92,7 +92,7 @@ export default class Countdown extends Component {
           }}
         >
           <div className={'modal' + (submitted ? ' submitted' : '')}>
-            <h2>Stay in the know.</h2><p>You'll get an email (and only one!) from me when we're set to launch the campaign.</p>
+            <h2>Stay in the know.</h2><p>You'll get an email <em>(and only one!)</em> from me when we're set to launch the campaign.</p>
 
             <div className={'input-wrapper' + (this.state.valid ? ' valid' : '') + (submitted ? ' success' : '')}>
               <span className='success'>Done! I'll email you soon!</span>
